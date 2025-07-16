@@ -1,12 +1,50 @@
 import { useRef, useState, useEffect } from "react";
-import { Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { BtnStyle } from "./Shared";
 import genericImg from "./bg.jpeg"
 
 import { FullList } from "./FullList";
+import FeatureCards from "./FeatureCards";
 
 
 export const Landing = () => {
+
+return <div>
+	
+	<div className="homeContainer">
+
+<section className="homeChild">
+<div className="landingBG">
+        <div className="landingCont">
+          <div className="landingHeader"></div>
+
+          <div className="landingDialogue">
+            TenantAct swdvigrihveriv
+            <br />
+            <br />
+              <Button   onClick={() => {
+    const el = document.getElementById('feature')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }} sx={BtnStyle}>
+                GET STARTED
+              </Button>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+<section className="homeChild" id="feature">
+<Box sx={{width: '90%', margin: '50px auto'}}>
+
+
+
+<FeatureCards />
+</Box>
+</section>
+</div></div>;
+
   const Project = ({ title, desc, link, img }) => {
     return (
 			<Grid item xs={12} sm={6}>

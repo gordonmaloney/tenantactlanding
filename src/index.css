@@ -8,6 +8,21 @@
   display: none;
 }
 
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+
+
+
 body {
   margin: 0;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -26,6 +41,108 @@ body {
 
 .bebas {
   font-family: 'Bebas Neue';
+}
+
+
+
+
+.landingBG {
+  z-index: 1400;
+}
+
+
+.landingBG::-webkit-scrollbar {
+  display: none;
+  
+}
+
+.landingCont {
+  width: 100vw;
+  height: 100vh;
+overflow: hidden !important;
+background: linear-gradient(90deg, rgb(9, 124, 53));
+position: relative;
+}
+
+
+
+.landingHeader {
+width: 100vw;
+height: 100vh;
+max-width: 1200px;
+  background-image: url('./TenantAct.png');
+  background-size: contain ;
+  background-position: center left;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+background-repeat: no-repeat;
+overflow: hidden !important;
+
+}
+
+
+
+.landingDialogue {
+  overflow: hidden !important;
+  position: absolute;
+  top: 75%;
+  right: 15%;
+  transform: translate(25%, -50%);
+  width: 280px;
+  height: 200px;
+  background-color: rgba(255, 241, 208, 0.4);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+  text-align: center;
+  padding: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8em;
+}
+
+@media (max-width: 700px) {
+  .landingHeader {
+    background-size: 100% ;
+    overflow: hidden !important;
+    background-position: left 20%;
+  }
+  .landingDialogue {
+right: 50%;
+transform: translate(50%, -50%);
+
+  }
+}
+
+
+
+.homeContainer {
+  height: 100vh;               /* full screen height */
+  overflow-y: auto;            /* enable scrolling on this box */
+  scroll-snap-type: y mandatory; /* snap its children vertically */
+  
+  /* optional: hide the scrollbar if you like */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;      
+}
+.homeContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each section will snap to the top of the container */
+.homeChild {
+  scroll-snap-align: start;
+  min-height: 100vh;           /* so each takes a full “page” */
+  
+  /* your other layout rules… */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif;
 }
 
 .header {

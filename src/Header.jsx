@@ -34,6 +34,8 @@ function Header() {
   };
 
 
+
+
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (nextOpen) => (event) => {
@@ -70,6 +72,10 @@ function Header() {
     </Box>
   );
 
+
+
+
+  
   return (
     <AppBar position="fixed"
 	
@@ -78,7 +84,7 @@ function Header() {
 		color: 'white',              // icon/text color
 		boxShadow: 4,                  // MUI shadow level (0–24)
 		//borderBottom: '2px solid #FF4081',
-    zIndex: 50
+    zIndex: 50,
 	  }}
 	>
       <Container maxWidth="xl">
@@ -86,8 +92,7 @@ function Header() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+
             sx={{
               mr: 2,
               display: { xs: 'none', sm: 'flex' },
@@ -96,6 +101,10 @@ function Header() {
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
+            }}
+            onClick={() => {
+              const el = document.getElementById('hero')
+              if (el) el.scrollIntoView({ behavior: 'smooth' })
             }}
           >
             TenantAct
@@ -137,16 +146,18 @@ function Header() {
       </SwipeableDrawer>
 
 
-
-            {sections.map((section) => (
-              <Button
-                key={section}
-                onClick={handleCloseNavMenu}
+      <Button
+                key="Get involved"
+                onClick={() => {
+                  const el = document.getElementById('contact')
+                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {section}
+                Get involved
               </Button>
-            ))}
+
+   
           </Box>
 
 
@@ -185,11 +196,17 @@ function Header() {
                 </MenuItem>
 
 
-              {sections.map((section) => (
-                <MenuItem key={section} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{section}</Typography>
+
+
+                <MenuItem key={'Get involved'} onClick={handleCloseNavMenu}>
+
+
+                <Typography sx={{ textAlign: 'center' }}
+		    onClick={() => {
+          const el = document.getElementById('contact')
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        }}>Get Involved</Typography>
                 </MenuItem>
-              ))}
             </Menu>
           </Box>
         </Toolbar>

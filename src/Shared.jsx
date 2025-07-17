@@ -1,6 +1,6 @@
 export const BtnStyle = {
     fontFamily: "Bebas Neue, Roboto",
-    borderRadius: '2px',
+    borderRadius: '10px',
     color: "white",
     backgroundColor: 'green',
     fontSize: '2em',

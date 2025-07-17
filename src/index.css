@@ -77,7 +77,29 @@ max-width: 1200px;
   -webkit-filter: invert(100%);
 background-repeat: no-repeat;
 overflow: hidden !important;
+position: relative;           /* establish a stacking context */
 
+}
+
+
+
+#hero .landingCont::after {
+  width: 100vw;
+height: 100vh;
+  content: '';
+  position: absolute;
+height: 100vh;
+  top: 0; right: 0; bottom: 0; left: 0;
+  pointer-events: none;          /* let clicks pass through */
+  background: url('./overlay.jpg');
+  background-repeat: no-repeat;
+  overflow: hidden !important;
+  transform: rotate(180deg);
+  -webkit-filter: invert(100%);
+
+  background-size: cover ;
+  mix-blend-mode: saturate;      /* blend the grain into your BG */
+  opacity: 0.2;                  /* tweak for subtlety */
 }
 
 
@@ -89,15 +111,13 @@ overflow: hidden !important;
   right: 15%;
   transform: translate(25%, -50%);
   width: 280px;
-  height: 200px;
+
   background-color: rgba(255, 241, 208, 0.4);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
   text-align: center;
   padding: 20px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8em;
 }
 
 @media (max-width: 700px) {

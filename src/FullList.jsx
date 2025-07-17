@@ -15,8 +15,8 @@ export const FullList = [
 	//TenantShout
 	{
 		title: "TenantShout",
-		desc: "Create and run write\u2011a\u2011message campaigns",
-		link: "https://tenantshout.netlify.app/",
+		desc: "A Living Rent platform for digital campaign actions - mobilise members to send emails, tweets, or phone calls to targets.",
+		link: "https://tenantshout2.netlify.app/",
 		img: TS,
 	},
 

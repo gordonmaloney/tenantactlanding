@@ -8,6 +8,7 @@ export const Contact = () => {
   
   
   const encodedNumber = "NDQ3OTAzNzAwNzUx";
+  //this is just Gordon's whatsapp in base64 so scrapers don't spam me
   const msg = "Hey! I'd like to chat about TenantAct. "
 
 

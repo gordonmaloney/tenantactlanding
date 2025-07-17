@@ -7,7 +7,11 @@ const Hero = () => {
     <section className="homeChild" id="hero">
       <div className="landingBG">
         <div className="landingCont">
-          <div className="landingHeader"></div>
+          
+          
+          <div className="landingHeader"
+          // "Tenant Act"  text is in here as an image, assigned in the css
+          ></div>
 
           <div className="landingDialogue">
             <h1>Digital tools for organising<br/>

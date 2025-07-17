@@ -2,7 +2,10 @@ import { Box, Grid, Typography, Button} from "@mui/material";
 import React from "react";
 import { FullList } from "../FullList";
 import { isMobile } from "react-device-detect";
-import { BtnStyleSmall } from "../MUIStyles";
+import { BtnStyleSmall, BtnStyleTiny } from "../MUIStyles";
+
+
+//This needs buttons for each tool incorporated someone, currently the text is an <a> tag but that isn't ideal
 
 const Showcase = () => {
   return (
@@ -21,7 +24,7 @@ const Showcase = () => {
           background: `linear-gradient(
       to bottom,
       rgba(0,0,0,0)   0%,
-      rgba(0,0,0,0.5) 10%,
+      rgba(0,0,0,0.5) 5%,
       rgba(0,0,0,0.5) 90%,
       rgba(0,0,0,0)   100%
     )`,
@@ -57,6 +60,7 @@ const Showcase = () => {
                 spacing={!isMobile ? 6 : 0}
                 sx={{ margin: "20px 0" }}
                 flexDirection={index % 2 ? "row-reverse" : "row"}
+                alignItems={"center"}
               >
                 <Grid item xs={6}>
                   <Box
@@ -72,34 +76,39 @@ const Showcase = () => {
                       padding: !isMobile ? "0 20px" : "0 10px",
                     }}
                   >
-                    <Typography
-                      sx={{
-                        margin: "0",
-                        fontFamily: "Bebas Neue",
-                        fontSize: !isMobile ? "3rem" : "2rem",
-                        color: "white",
-                        lineHeight: !isMobile ? "2.5rem" : "1.7rem",
-                      }}
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        margin: "0",
-                        fontSize: !isMobile ? "1rem" : "0.8rem",
-                        fontFamily: "Roboto",
-                        color: "white",
-                      }}
-                    >
-                      {item.desc}
-                    </Typography>
+                    <a target="_blank" href={item.link}>
+                      <Typography
+                        sx={{
+                          margin: "0",
+                          fontFamily: "Bebas Neue",
+                          fontSize: !isMobile ? "3rem" : "2rem",
+                          color: "white",
+                          lineHeight: !isMobile ? "2.5rem" : "1.7rem",
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          margin: "0",
+                          fontSize: !isMobile ? "1rem" : "0.8rem",
+                          lineHeight: !isMobile ? "1.2rem" : "0.9rem",
+                          fontFamily: "Roboto",
+                          color: "white",
+                        }}
+                      >
+                        {item.desc}
+                      </Typography>
+                    </a>
 
+                    {/*
                     <center>
-                      <Button sx={{...BtnStyleSmall, marginTop: '20px'}}
+                      <Button sx={{...BtnStyleSmall, marginTop: !isMobile ? '20px' : "5px"}}
                       target="_blank"
                       href={item.link}
                       >Go to tool</Button>
                     </center>
+                    */}
                   </Box>
                 </Grid>
 

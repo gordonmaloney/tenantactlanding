@@ -8,6 +8,7 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import { isMobile } from "react-device-detect";
 
 import img1 from "../imgs/img1.jpeg";
 import img2 from "../imgs/img2.jpeg";
@@ -54,7 +55,7 @@ const features = [
 export default function TenantShout() {
   return (
     <section className="homeChild" id="firstChild">
-      <Box sx={{ width: "90%", margin: "50px auto" }}>
+      <Box sx={{ width: "90%", margin: "50px auto", marginTop: isMobile && "100px" }}>
         <Grid container spacing={2} alignItems={"center"}>
           <Grid
             item
@@ -82,6 +83,8 @@ export default function TenantShout() {
               </Box>
 
               {/*
+
+// "Featured Campaigns" section was herebut it looks like shit so commented out for someone to make nice
 <h4 style={{textAlign: 'left'}}>Featured campaigns:</h4>
 
 <Grid container spacing={1} justifyContent={"space-around"} alignItems={"center"}>
@@ -107,16 +110,16 @@ export default function TenantShout() {
 
           <Grid item xs={12} md={6}>
             <Grid container spacing={2}>
-              {features.slice(0, 5).map((feature, idx) => (
+              {features.map((feature, idx) => (
                 <Grid item key={idx} sx={{ width: "100%" }}>
-                  <Card sx={{ display: "flex", width: "100%", height: 100 }}>
+                  <Card sx={{ display: "flex", width: "100%", margin: "0 auto", height: 100, alignItems: "center" }}>
                     {/* Left side: the image */}
 
                     <GreenOverlayImage
                       src={feature.image}
                       alt={feature.text}
                       //   border_radius={'10px'}
-                      height={"100%"}
+                      height={100}
                       width={100}
                     />
 

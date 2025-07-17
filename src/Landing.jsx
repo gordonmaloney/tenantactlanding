@@ -13,6 +13,10 @@ export const Landing = () => {
   return (
     <div>
       <div className="homeContainer">
+
+        {
+          //Each component is a <section> tag, which cause vertical scrolling  to snap
+        }
         <Hero />
         <TenantShout />
 
@@ -20,7 +24,7 @@ export const Landing = () => {
         <Contact />
 
         {
-          //NOTE whatever the last section is has to include the footer
+          //NOTE whatever the last section is has to include the footer,  currently it's <Contact /> but if you change that, move the Footer accordingly
         }
       </div>
     </div>

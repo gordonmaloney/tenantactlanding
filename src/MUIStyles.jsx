@@ -1,7 +1,7 @@
 export const BtnStyle = {
 	fontSize: "large",
 	//textTransform: "none",
-	fontWeight: "800",
+	fontWeight: "400",
 	fontFamily: "Bebas Neue",
 	borderRadius: "10px",
 	padding: '8px 8px 4px 8px',
@@ -18,7 +18,7 @@ export const BtnStyle = {
 export const BtnStyleSmall = {
 	fontSize: "medium",
 	//textTransform: "none",
-	fontWeight: "600",
+	fontWeight: "400",
 	fontFamily: "Bebas Neue",
 
 	borderRadius: "10px",
@@ -77,9 +77,10 @@ export const BtnStyleSecondary = {
 };
 
 export const BtnStyleTiny = {
+	fontFamily: "Bebas Neue",
 	fontSize: "small",
 	//textTransform: "none",
-	fontWeight: "600",
+	fontWeight: "400",
 	borderRadius: "10px",
 	color: "var(--secondary-color)",
 	backgroundColor: "var(--button-color)",

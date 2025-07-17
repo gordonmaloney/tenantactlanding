@@ -1,38 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Lato:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Lato:wght@900&display=swap");
 
-*{
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+$font: var(--font);
+$header-color: var(--header-color);
+$background-color: var(--background-color);
+$primary-color: var(--primary-color);
+$primary-color-semi-trans: var(--primary-color-semi-trans);
+$secondary-color: var(--secondary-color);
+$text-highlight: var(--text-highlight);
+$alert-color: var(--alert-color);
+
+$box-outline: var(--box-outline);
+$box-outline-focus: var(--box-outline-focus);
+
+* {
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {
   display: none;
 }
 
-
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
 
-
-
-
 body {
   margin: 0;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth !important;
 
-  background-image: url('/src/bg.jpeg');
+  background-image: url("./imgs/bg.jpeg");
   background-attachment: fixed;
   background-size: cover;
   overflow-x: hidden;
@@ -40,69 +50,60 @@ body {
 }
 
 .bebas {
-  font-family: 'Bebas Neue';
+  font-family: "Bebas Neue";
 }
-
-
-
 
 .landingBG {
   z-index: 1400;
 }
 
-
 .landingBG::-webkit-scrollbar {
   display: none;
-  
 }
 
 .landingCont {
   width: 100vw;
   height: 100vh;
-overflow: hidden !important;
-background: linear-gradient(90deg, rgb(9, 124, 53));
-position: relative;
+  overflow: hidden !important;
+  background: linear-gradient(90deg, rgb(9, 124, 53));
+  position: relative;
 }
 
-
-
 .landingHeader {
-width: 100vw;
-height: 100vh;
-max-width: 1200px;
-  background-image: url('./TenantAct.png');
-  background-size: contain ;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1200px;
+  background-image: url("./imgs/TenantAct.png");
+  background-size: contain;
   background-position: center left;
   filter: invert(100%);
   -webkit-filter: invert(100%);
-background-repeat: no-repeat;
-overflow: hidden !important;
-position: relative;           /* establish a stacking context */
-
+  background-repeat: no-repeat;
+  overflow: hidden !important;
+  position: relative; /* establish a stacking context */
 }
-
-
 
 #hero .landingCont::after {
   width: 100vw;
-height: 100vh;
-  content: '';
+  height: 100vh;
+  content: "";
   position: absolute;
-height: 100vh;
-  top: 0; right: 0; bottom: 0; left: 0;
-  pointer-events: none;          /* let clicks pass through */
-  background: url('./overlay.jpg');
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none; /* let clicks pass through */
+  background: url("./imgs/overlay.jpg");
   background-repeat: no-repeat;
   overflow: hidden !important;
   transform: rotate(180deg);
   -webkit-filter: invert(100%);
 
-  background-size: cover ;
-  mix-blend-mode: saturate;      /* blend the grain into your BG */
-  opacity: 0.2;                  /* tweak for subtlety */
+  background-size: cover;
+  mix-blend-mode: overlay; /* blend the grain into your BG */
+  opacity: 0.3; /* tweak for subtlety */
 }
-
-
 
 .landingDialogue {
   overflow: hidden !important;
@@ -112,37 +113,34 @@ height: 100vh;
   transform: translate(25%, -50%);
   width: 280px;
 
-  background-color: rgba(255, 241, 208, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
   text-align: center;
   padding: 20px;
 }
 
 @media (max-width: 700px) {
   .landingHeader {
-    background-size: 100% ;
+    background-size: 100%;
     overflow: hidden !important;
     background-position: left 20%;
   }
   .landingDialogue {
-right: 50%;
-transform: translate(50%, -50%);
-
+    right: 50%;
+    transform: translate(50%, -50%);
   }
 }
 
-
-
 .homeContainer {
-  height: 100vh;               /* full screen height */
-  overflow-y: auto;            /* enable scrolling on this box */
+  height: 100vh; /* full screen height */
+  overflow-y: auto; /* enable scrolling on this box */
   scroll-snap-type: y mandatory; /* snap its children vertically */
-  
+
   /* optional: hide the scrollbar if you like */
-  -ms-overflow-style: none;  
-  scrollbar-width: none;      
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .homeContainer::-webkit-scrollbar {
   display: none;
@@ -151,8 +149,8 @@ transform: translate(50%, -50%);
 /* Each section will snap to the top of the container */
 .homeChild {
   scroll-snap-align: start;
-  min-height: 100vh;           /* so each takes a full “page” */
-  
+  min-height: 100vh; /* so each takes a full “page” */
+
   /* your other layout rules… */
   display: flex;
   flex-direction: column;
@@ -161,8 +159,14 @@ transform: translate(50%, -50%);
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
 }
 
 .header {
@@ -181,15 +185,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2em;
 }
 
-
 .desc_text {
-
   text-align: center;
   margin-bottom: 5px;
-
-
 }
-
 
 .outerContainer {
   margin: 0 !important;
@@ -197,19 +196,18 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
 }
 
-
 .notFlash {
   background-color: inherit;
   padding: 5px !important;
   border-radius: 5px;
-  transition: 0.5s
+  transition: 0.5s;
 }
 
 .flash {
   background-color: lightgreen !important;
   padding: 5px !important;
   border-radius: 5px;
-  transition: 1s
+  transition: 1s;
 }
 
 .landing {
@@ -218,7 +216,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;  
+  align-items: center;
 }
 
 .landingContainerSmall {
@@ -229,8 +227,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 80%;
   min-width: 260px;
   max-width: 500px;
- margin-top: 10vh;
- margin-bottom: 100px,
+  margin-top: 10vh;
+  margin-bottom: 100px;
 }
 
 .landingContainer {
@@ -241,8 +239,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 80%;
   min-width: 280px;
   max-width: 800px;
- margin-top: 10vh;
- margin-bottom: 40px;
+  margin-top: 10vh;
+  margin-bottom: 40px;
 }
 
 .navBar {
@@ -262,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 a {
@@ -282,7 +280,7 @@ a {
 
 .showOnMob {
   visibility: hidden;
-height: 0px !important;
+  height: 0px !important;
 }
 
 .vanishLeft {
@@ -303,10 +301,8 @@ height: 0px !important;
 }
 .fadeFinished {
   opacity: 1;
-  transition: 0.3s
+  transition: 0.3s;
 }
-
-
 
 .hoverCampBox:hover {
   border-radius: 10px;
@@ -316,7 +312,7 @@ height: 0px !important;
 @media screen and (max-width: 600px) {
   .header1 {
     font-size: 5.5em;
-    line-height: 1em !important
+    line-height: 1em !important;
   }
   .header2 {
     font-size: 2.5em;
@@ -343,7 +339,6 @@ height: 0px !important;
   }
 }
 
-
 .itemContainer {
   display: grid;
   place-items: center;
@@ -356,7 +351,7 @@ height: 0px !important;
 
 .itemExplainer {
   width: 160px;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 5px;
   opacity: 1;
   border-radius: 10px;
@@ -366,7 +361,7 @@ height: 0px !important;
 
 .itemExplainer:hover {
   opacity: 0;
-  transition: 0.5s
+  transition: 0.5s;
 }
 
 .screenshot {

@@ -62,6 +62,11 @@ tenantactlanding/
 │   └── index.scss            # Global styles
 ```
 
+
+### Styling
+Using MUI, but with custom styling in src/MUIStyles.jsx
+
+
 ## Technologies Used
 
 - **React** (v18)

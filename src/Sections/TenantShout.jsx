@@ -36,7 +36,7 @@ const featuredCampaigns = [
 const features = [
   {
     text: "Pressure councillors to vote for a key motion",
-    image: img1, // replace with your image URL
+    image: img1,
   },
   {
     text: "Respond en masse to a consultation or survey",
@@ -55,7 +55,13 @@ const features = [
 export default function TenantShout() {
   return (
     <section className="homeChild" id="firstChild">
-      <Box sx={{ width: "90%", margin: "50px auto", marginTop: isMobile && "100px" }}>
+      <Box
+        sx={{
+          width: "90%",
+          margin: "50px auto",
+          marginTop: isMobile && "100px",
+        }}
+      >
         <Grid container spacing={2} alignItems={"center"}>
           <Grid
             item
@@ -111,24 +117,46 @@ export default function TenantShout() {
           <Grid item xs={12} md={6}>
             <Grid container spacing={2}>
               {features.map((feature, idx) => (
-                <Grid item key={idx} sx={{ width: "100%" }}>
-                  <Card sx={{ display: "flex", width: "100%", margin: "0 auto", height: 100, alignItems: "center" }}>
+                //long horizontal cards on desktop
+                //stubby vertical ones on mobile
+
+                <Grid
+                  item
+                  key={idx}
+                  sx={{ width: "100%" }}
+                  xs={isMobile ? 6 : 12}
+                >
+                  <Card
+                    sx={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      width: "100%",
+                      margin: "0",
+                      height: isMobile ? 200 : 100,
+                      alignItems: "center",
+                    }}
+                  >
                     {/* Left side: the image */}
 
-                    <GreenOverlayImage
-                      src={feature.image}
-                      alt={feature.text}
-                      //   border_radius={'10px'}
-                      height={100}
-                      width={100}
-                    />
+                      <GreenOverlayImage
+                        src={feature.image}
+                        alt={feature.text}
+                        height={"130px"}
+                        width={"100%"}
+                      />
+
 
                     {/* Right side: text content */}
                     <Box
                       sx={{ display: "flex", flexDirection: "column", flex: 1 }}
                     >
                       <CardContent>
-                        <p style={{ margin: 0 }}> {feature.text}</p>
+                        <p
+                          style={{ margin: 0, textAlign: isMobile && "center" }}
+                        >
+                          {" "}
+                          {feature.text}
+                        </p>
                       </CardContent>
                     </Box>
                   </Card>

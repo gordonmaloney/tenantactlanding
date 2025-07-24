@@ -2,7 +2,7 @@ import STL from "./imgs/STL.png";
 import TS from "./imgs/TS.png";
 import fightrent from "./imgs/fightrent.png";
 import textbankr from "./imgs/textbankr.png";
-import img5 from "./imgs/img5.jpg"
+import scraper from "./imgs/scraper.png"
 
 export const FullList = [
   //Fight rent
@@ -42,6 +42,6 @@ export const FullList = [
     title: "Rogue landlord finder",
     desc: "Filter and search housing tribunal decision",
     link: "https://tribunal-decisions.netlify.app/",
-    img: img5,
+    img: scraper,
   },
 ];

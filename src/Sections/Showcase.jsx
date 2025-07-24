@@ -1,9 +1,8 @@
-import { Box, Grid, Typography, Button} from "@mui/material";
+import { Box, Grid, Typography, Button } from "@mui/material";
 import React from "react";
 import { FullList } from "../FullList";
 import { isMobile } from "react-device-detect";
 import { BtnStyleSmall, BtnStyleTiny } from "../MUIStyles";
-
 
 //This needs buttons for each tool incorporated someone, currently the text is an <a> tag but that isn't ideal
 
@@ -14,22 +13,7 @@ const Showcase = () => {
       id="showcase"
       style={{ position: "relative" }}
     >
-      <div
-        style={{
-          zIndex: "5",
-          height: "100%",
-          width: "100%",
-          position: "absolute",
-          pointerEvents: "none",
-          background: `linear-gradient(
-      to bottom,
-      rgba(0,0,0,0)   0%,
-      rgba(0,0,0,0.5) 5%,
-      rgba(0,0,0,0.5) 90%,
-      rgba(0,0,0,0)   100%
-    )`,
-        }}
-      />
+      <div className="backgroundGradient" />
       <div
         style={{
           width: "90%",
@@ -100,28 +84,21 @@ const Showcase = () => {
                         {item.desc}
                       </Typography>
                     </a>
-
-                    {/*
-                    <center>
-                      <Button sx={{...BtnStyleSmall, marginTop: !isMobile ? '20px' : "5px"}}
-                      target="_blank"
-                      href={item.link}
-                      >Go to tool</Button>
-                    </center>
-                    */}
                   </Box>
                 </Grid>
 
                 <Grid item xs={6}>
-                  <img
-                    src={item.img}
-                    width="100%"
-                    style={{
-                      boxSizing: "border-box",
-                      borderRadius: "10px",
-                      border: "4px solid white",
-                    }}
-                  />
+                  <a target="_blank" href={item.link}>
+                    <img
+                      src={item.img}
+                      width="100%"
+                      style={{
+                        boxSizing: "border-box",
+                        borderRadius: "10px",
+                        border: "4px solid white",
+                      }}
+                    />
+                  </a>
                 </Grid>
               </Grid>
             );

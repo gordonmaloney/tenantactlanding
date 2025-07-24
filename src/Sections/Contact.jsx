@@ -3,6 +3,7 @@ import { Button, Box } from "@mui/material";
 import { FullList } from "../FullList";
 import Footer from "../Components/Footer";
 import { BtnStyle } from "../MUIStyles";
+import { isMobile } from "react-device-detect";
 
 export const Contact = () => {
   
@@ -23,17 +24,17 @@ export const Contact = () => {
       id="contact"
       style={{ position: "relative" }}
     >
-      <Box sx={{ width: "90%", margin: "50px auto" }}>
+      <Box sx={{ width: "90%", margin: "50px auto", marginTop: isMobile && "-50px" }}>
         <center>
           <Box
             sx={{
               backgroundColor: "white",
               borderRadius: "10px",
-              width: "75%",
+              width: isMobile ? "80%" : "55%",
               padding: "12px",
             }}
           >
-            <h1>GET INVOLVED</h1>
+            <h1 style={{marginTop: '0'}}>GET INVOLVED</h1>
 
             <p style={{padding: '0 5vw'}}>
               TenantAct is built and maintained by volunteers - if you want to

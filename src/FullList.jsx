@@ -3,6 +3,7 @@ import TS from "./imgs/TS.png";
 import fightrent from "./imgs/fightrent.png";
 import textbankr from "./imgs/textbankr.png";
 import scraper from "./imgs/scraper.png"
+import notecc from './imgs/notecc.png'
 
 export const FullList = [
   //Fight rent
@@ -43,5 +44,13 @@ export const FullList = [
     desc: "Filter and search housing tribunal decision",
     link: "https://tribunal.tenantact.org/",
     img: scraper,
+  },
+
+  //complaints
+  {
+    title: "Tenant Complaints Portal",
+    desc: "A platform for complaining to  Edinburgh Council",
+    link: "https://complaints.tenantact.org/",
+    img: notecc,
   },
 ];

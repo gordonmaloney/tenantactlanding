@@ -9,7 +9,7 @@ export const FullList = [
   {
     title: "Fight Rent hikes",
     desc: "Report and contest rent hikes",
-    link: "https://fightrent.netlify.app/",
+    link: "https://fightrent.tenantact.org",
     img: fightrent,
   },
 
@@ -17,7 +17,7 @@ export const FullList = [
   {
     title: "TenantShout",
     desc: "A Living Rent platform for digital campaign actions - mobilise members to send emails, tweets, or phone calls to targets.",
-    link: "https://tenantshout2.netlify.app/",
+    link: "https://shout.tenantact.org/",
     img: TS,
   },
 
@@ -25,7 +25,7 @@ export const FullList = [
   {
     title: "STL Objector",
     desc: "Submit objections to new STL applications",
-    link: "http://stlobjectr.netlify.app/",
+    link: "http://stlobject.tenantact.org/",
     img: STL,
   },
 
@@ -33,7 +33,7 @@ export const FullList = [
   {
     title: "Textbankr",
     desc: "Easily phone- and text-bank members and contacts",
-    link: "https://textbankr.netlify.app/",
+    link: "https://textbankr.tenantact.org/",
     img: textbankr,
   },
 
@@ -41,7 +41,7 @@ export const FullList = [
   {
     title: "Rogue landlord finder",
     desc: "Filter and search housing tribunal decision",
-    link: "https://tribunal-decisions.netlify.app/",
+    link: "https://tribunal.tenantact.org/",
     img: scraper,
   },
 ];

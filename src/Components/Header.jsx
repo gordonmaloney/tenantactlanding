@@ -34,6 +34,26 @@ function Header() {
 
   const [open, setOpen] = React.useState(false);
 
+  const menuNavigation = (event) => {
+    const thisEl = event.target;
+    const sectionId = thisEl.dataset.sectionId;
+    const el = document.getElementById(sectionId);
+    const resetChildren = document.querySelectorAll("header .MuiBox-root button");
+
+    resetChildren.forEach(
+      function (node) {
+        node.style.backgroundColor = "";
+        node.style.color = "";
+      }
+    );
+    
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      thisEl.style.backgroundColor = "white";
+      thisEl.style.color = "rgb(9, 124, 53)";
+    }
+  };
+
   const toggleDrawer = (nextOpen) => (event) => {
     // ignore tab/shift to prevent focus loss
     if (
@@ -121,6 +141,8 @@ function Header() {
 
           <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
             <Button
+              data-section-id="showcase"
+              id="showcaseMenuItem"
               sx={{
                 my: 2,
                 mx: 2,
@@ -131,14 +153,11 @@ function Header() {
                 fontSize: "1.8rem",
                 lineHeight: "1.2rem",
               }}
-              //  onClick={toggleDrawer(true)}
-              onClick={() => {
-                const el = document.getElementById("showcase");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={menuNavigation}
             >
               Tools
             </Button>
+
             <SwipeableDrawer
               anchor="right"
               open={open}
@@ -150,10 +169,9 @@ function Header() {
 
             <Button
               key="Get involved"
-              onClick={() => {
-                const el = document.getElementById("contact");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
+              data-section-id="contact"
+              id="contactMenuItem"
+              onClick={menuNavigation}
               sx={{
                 my: 2,
                 color: "white",

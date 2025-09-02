@@ -1,5 +1,6 @@
 import { Box, Grid, Typography, Button } from "@mui/material";
-import React from "react";
+import React, {useRef} from "react";
+import useIsVisible from "../useIntersection";  
 import { FullList } from "../FullList";
 import { isMobile } from "react-device-detect";
 import { BtnStyleSmall, BtnStyleTiny } from "../MUIStyles";
@@ -7,11 +8,29 @@ import { BtnStyleSmall, BtnStyleTiny } from "../MUIStyles";
 //This needs buttons for each tool incorporated someone, currently the text is an <a> tag but that isn't ideal
 
 const Showcase = () => {
+
+  // create a ref
+  const targetParagraph = useRef();
+  // send ref to our hook to return true or false based on visibility of ref in view
+  const targetParagraphVisible = useIsVisible(targetParagraph);
+ 
+  const menuItem = document.getElementById("showcaseMenuItem");
+  
+  if(targetParagraphVisible === true) {
+    menuItem.style.backgroundColor = "white";
+    menuItem.style.color = "rgb(9, 124, 53)";
+  } else if (targetParagraphVisible === false && menuItem != null) {
+    menuItem.style.backgroundColor = "";
+    menuItem.style.color = "";
+  }
+
   return (
     <section
+      ref={targetParagraph}
       className="homeChild"
       id="showcase"
       style={{ position: "relative" }}
+      key="showcase"
     >
       <div className="backgroundGradient" />
       <div

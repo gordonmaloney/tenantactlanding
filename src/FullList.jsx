@@ -2,18 +2,19 @@ import STL from "./imgs/STL.png";
 import TS from "./imgs/TS.png";
 import fightrent from "./imgs/fightrent.png";
 import textbankr from "./imgs/textbankr.png";
-import scraper from "./imgs/scraper.png"
-import notecc from './imgs/notecc.png'
+import scraper from "./imgs/scraper.png";
+import notecc from "./imgs/notecc.png";
 
 export const FullList = [
   //Fight rent
+  /*
   {
     title: "Fight Rent hikes",
     desc: "Report and contest rent hikes",
     link: "https://fightrent.tenantact.org",
     img: fightrent,
   },
-
+*/
   //TenantShout
   {
     title: "TenantShout",

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { BtnStyle } from "./MUIStyles";
 
@@ -10,6 +10,7 @@ import { Contact } from "./Sections/Contact";
 import Showcase from "./Sections/Showcase";
 
 export const Landing = () => {
+
   return (
     <div>
       <div className="homeContainer">
@@ -17,6 +18,7 @@ export const Landing = () => {
         {
           //Each component is a <section> tag, which cause vertical scrolling  to snap
         }
+
         <Hero />
         <TenantShout />
 
@@ -29,4 +31,4 @@ export const Landing = () => {
       </div>
     </div>
   );
-};
+}

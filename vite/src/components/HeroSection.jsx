@@ -14,7 +14,7 @@ export default function HeroSection({ bgImg }) {
             TENANT<span>ACT</span>
           </h1>
           <p className="lede">
-            Digital tools for tenant organising, campaigning and collective action.
+            Digital tools to organise, campaign, and build power.
           </p>
           <div className="actions">
             <button

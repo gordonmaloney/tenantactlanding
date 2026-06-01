@@ -1,224 +1,154 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+  Button,
+  Container,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import { FullList } from "../FullList";
-
-const sections = ["Pricing", "Blog"];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
     setAnchorElNav(null);
   };
-
-  const [open, setOpen] = React.useState(false);
-
-  const toggleDrawer = (nextOpen) => (event) => {
-    // ignore tab/shift to prevent focus loss
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setOpen(nextOpen);
-  };
-
-  const DrawerList = (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <h3 style={{ padding: "0 16px" }}>All products</h3>
-      <Divider />
-      <List>
-        {FullList.map((item, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton href={item.link} target="_blank">
-              <ListItemText primary={item.title} secondary={item.desc} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
   return (
     <AppBar
       position="fixed"
+      elevation={0}
       sx={{
-        backgroundColor: "rgb(9, 124, 53)", // pick any CSS color
-        color: "white", // icon/text color
-        boxShadow: 4, // MUI shadow level (0–24)
-        //borderBottom: '2px solid #FF4081',
+        background: "rgba(3, 24, 17, 0.78)",
+        backdropFilter: "blur(14px)",
+        borderBottom: "1px solid rgba(255,255,255,0.12)",
+        color: "white",
         zIndex: 50,
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar
+          disableGutters
+          sx={{
+            minHeight: "76px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography
-            variant="h6"
-            noWrap
+            onClick={() => scrollTo("hero")}
             sx={{
-              mr: 2,
-              display: { xs: "none", sm: "flex" },
-              flexGrow: 1,
+              cursor: "pointer",
               fontFamily: "Bebas Neue",
-              fontWeight: 400,
-              fontSize: "2rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-            onClick={() => {
-              const el = document.getElementById("hero");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
+              fontSize: { xs: "1.8rem", md: "2.2rem" },
+              letterSpacing: "0.04em",
+              lineHeight: 1,
             }}
           >
-            TenantAct
+            TENANT ACT
           </Typography>
 
-          <Typography
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", sm: "none" },
-              flexGrow: 1,
-              fontFamily: "Bebas Neue",
-              fontWeight: 400,
-              fontSize: "2rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              gap: 3,
             }}
           >
-            TenantAct
-          </Typography>
-
-          <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
-            <Button
-              sx={{
-                my: 2,
-                mx: 2,
-                color: "white",
-                display: "block",
-                fontFamily: "Bebas Neue",
-                fontWeight: 400,
-                fontSize: "1.8rem",
-                lineHeight: "1.2rem",
-              }}
-              //  onClick={toggleDrawer(true)}
-              onClick={() => {
-                const el = document.getElementById("showcase");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Tools
-            </Button>
-            <SwipeableDrawer
-              anchor="right"
-              open={open}
-              onClose={toggleDrawer(false)}
-              onOpen={toggleDrawer(true)}
-            >
-              {DrawerList}
-            </SwipeableDrawer>
+            {[
+              ["Tools", "showcase"],
+              ["TenantShout", "firstChild"],
+              ["Get involved", "contact"],
+            ].map(([label, id]) => (
+              <Button
+                key={label}
+                onClick={() => scrollTo(id)}
+                sx={{
+                  color: "white",
+                  fontFamily: "Bebas Neue",
+                  fontSize: "1.15rem",
+                  letterSpacing: "0.04em",
+                  opacity: 0.88,
+                  "&:hover": {
+                    opacity: 1,
+                    background: "rgba(255,255,255,0.08)",
+                  },
+                }}
+              >
+                {label}
+              </Button>
+            ))}
 
             <Button
-              key="Get involved"
-              onClick={() => {
-                const el = document.getElementById("contact");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => scrollTo("contact")}
               sx={{
-                my: 2,
+                ml: 1,
                 color: "white",
-                display: "block",
+                border: "1px solid rgba(255,255,255,0.55)",
+                borderRadius: "4px",
+                px: 2.5,
+                py: 1,
                 fontFamily: "Bebas Neue",
-                fontWeight: 400,
-                fontSize: "1.8rem",
-                lineHeight: "1.2rem",
+                fontSize: "1.05rem",
+                letterSpacing: "0.04em",
+                "&:hover": {
+                  borderColor: "white",
+                  background: "rgba(255,255,255,0.1)",
+                },
               }}
             >
-              Get involved
+              Get in touch
             </Button>
           </Box>
 
-          <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={(e) => setAnchorElNav(e.currentTarget)}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              <MenuItem key={"Products"} onClick={handleCloseNavMenu}>
-                <Typography
-                  sx={{ textAlign: "center", fontFamily: "Bebas Neue" }}
-                  //onClick={toggleDrawer(true)}
-                  onClick={() => {
-                    const el = document.getElementById("showcase");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Tools
-                </Typography>
-              </MenuItem>
 
-              <MenuItem key={"Get involved"} onClick={handleCloseNavMenu}>
-                <Typography
-                  sx={{ textAlign: "center", fontFamily: "Bebas Neue" }}
-                  onClick={() => {
-                    const el = document.getElementById("contact");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
+            <Menu
+              anchorEl={anchorElNav}
+              open={Boolean(anchorElNav)}
+              onClose={() => setAnchorElNav(null)}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+              PaperProps={{
+                sx: {
+                  background: "#061b13",
+                  color: "white",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  mt: 1,
+                },
+              }}
+            >
+              {[
+                ["Tools", "showcase"],
+                ["TenantShout", "firstChild"],
+                ["Get involved", "contact"],
+              ].map(([label, id]) => (
+                <MenuItem
+                  key={label}
+                  onClick={() => scrollTo(id)}
+                  sx={{ justifyContent: "flex-end" }}
                 >
-                  Get Involved
-                </Typography>
-              </MenuItem>
+                  <Typography
+                    sx={{ fontFamily: "Bebas Neue", fontSize: "1.4rem" }}
+                  >
+                    {label}
+                  </Typography>
+                </MenuItem>
+              ))}
             </Menu>
           </Box>
         </Toolbar>
@@ -226,4 +156,5 @@ function Header() {
     </AppBar>
   );
 }
+
 export default Header;

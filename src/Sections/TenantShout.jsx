@@ -1,170 +1,161 @@
 import React from "react";
-import {
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Button,
-  Typography,
-  Box,
-} from "@mui/material";
+import { Box, Button, Grid, Typography, Stack } from "@mui/material";
 import { isMobile } from "react-device-detect";
 
 import img1 from "../imgs/img1.jpeg";
 import img2 from "../imgs/img2.jpeg";
 import img3 from "../imgs/img3.jpeg";
 import img4 from "../imgs/img4.jpeg";
-import GreenOverlayImage from "../Components/ImgOverlay";
 import { FullList } from "../FullList";
-import { BtnStyle, BtnStyleSmall } from "../MUIStyles";
-
-const featuredCampaigns = [
-  {
-    title: "Report your rent hike",
-    blurb:
-      "Scotland's housing crisis is only getting worse - but MSPs have their heads in the sand. Use this tool to email them and make sure they can't ignore the impact rent hikes are having on tenants.",
-    id: "act/renthikes",
-  },
-  {
-    title: "Stamp out cowboy landlords",
-    blurb:
-      "The Edinburgh Regulatory Committee will be meeting soon to vote on a key package of measures around PRS enforcement - they need to hear from tenants demanding they pass it.",
-    id: "act/edregcttee",
-  },
-];
+import { BtnStyle } from "../MUIStyles";
 
 const features = [
-  {
-    text: "Pressure councillors to vote for a key motion",
-    image: img1,
-  },
-  {
-    text: "Respond en masse to a consultation or survey",
-    image: img2,
-  },
-  {
-    text: "Pile pressure on a member defence target",
-    image: img3,
-  },
-  {
-    text: "Shower politicians with personalised member stories",
-    image: img4,
-  },
+  { text: "Map problems in your area", image: img1 },
+  { text: "Find your neighbours", image: img2 },
+  { text: "Share stories securely", image: img3 },
+  { text: "Build stronger campaigns", image: img4 },
 ];
 
 export default function TenantShout() {
+  const tenantShout = FullList[1];
+
   return (
     <section className="homeChild" id="firstChild">
       <Box
         sx={{
-          width: "90%",
-          margin: "50px auto",
-          marginTop: isMobile && "100px",
+          minHeight: "100vh",
+          background: "#f7f4ec",
+          color: "#061b13",
+          display: "flex",
+          alignItems: "center",
+          py: { xs: 8, md: 12 },
         }}
       >
-        <Grid container spacing={2} alignItems={"center"}>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            justifyContent={"center"}
-            alignContent={"center"}
-          >
-            <center>
-              <Box
+        <Box sx={{ width: "92%", maxWidth: "1350px", margin: "0 auto" }}>
+          <Grid container spacing={8} alignItems="center">
+            <Grid item xs={12} md={5}>
+              <Typography
                 sx={{
-                  backgroundColor: "white",
-                  borderRadius: "10px",
-                  width: "75%",
-                  padding: "12px",
+                  color: "#07833d",
+                  fontFamily: "Bebas Neue",
+                  fontSize: "1.25rem",
+                  letterSpacing: "0.04em",
+                  mb: 1,
                 }}
               >
-                <h1>{FullList[1].title}</h1>
+                TENANTSHOUT
+              </Typography>
 
-                <p>{FullList[1].desc}</p>
+              <Typography
+                sx={{
+                  fontFamily: "Bebas Neue",
+                  fontSize: { xs: "4rem", md: "6.5rem" },
+                  lineHeight: 0.88,
+                  letterSpacing: "-0.03em",
+                  mb: 3,
+                }}
+              >
+                REPORT.
+                <br />
+                CONNECT.
+                <br />
+                TAKE ACTION.
+              </Typography>
 
-                <Button sx={BtnStyle} href={FullList[1].link} target="_blank">
-                  Go to TenantShout
-                </Button>
-              </Box>
+              <Typography
+                sx={{
+                  fontSize: "1.1rem",
+                  lineHeight: 1.45,
+                  maxWidth: "520px",
+                  mb: 3,
+                }}
+              >
+                {tenantShout.desc}
+              </Typography>
 
-              {/*
+              <Stack spacing={1.2} sx={{ mb: 4 }}>
+                {features.map((feature) => (
+                  <Typography key={feature.text} sx={{ fontSize: "1rem" }}>
+                    ✓ {feature.text}
+                  </Typography>
+                ))}
+              </Stack>
 
-// "Featured Campaigns" section was herebut it looks like shit so commented out for someone to make nice
-<h4 style={{textAlign: 'left'}}>Featured campaigns:</h4>
+              <Button sx={BtnStyle} href={tenantShout.link} target="_blank">
+                Explore TenantShout
+              </Button>
+            </Grid>
 
-<Grid container spacing={1} justifyContent={"space-around"} alignItems={"center"}>
-
-    {featuredCampaigns.map((camp) =>  
-      <Grid xs={6} item>
-
-          <Card sx={{padding: '3px'}}>
-<h4>{camp.title}</h4>
-<p>{camp.blurb}</p>
-<Button sx={BtnStyleSmall}  target="_blank">Take action</Button>
-          </Card>
-
-
-        </Grid>
-    )}
-
-
-</Grid>
-*/}
-            </center>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <Grid container spacing={2}>
-              {features.map((feature, idx) => (
-                //long horizontal cards on desktop
-                //stubby vertical ones on mobile
-
-                <Grid
-                  item
-                  key={idx}
-                  sx={{ width: "100%" }}
-                  xs={isMobile ? 6 : 12}
+            <Grid item xs={12} md={7}>
+              <Box
+                sx={{ position: "relative", minHeight: { xs: 360, md: 540 } }}
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    inset: { xs: "50px 0 auto 0", md: "40px 70px auto 40px" },
+                    background: "white",
+                    borderRadius: "22px",
+                    p: 2,
+                    boxShadow: "0 30px 90px rgba(0,0,0,0.18)",
+                    transform: "rotate(-2deg)",
+                  }}
                 >
-                  <Card
-                    sx={{
-                      display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                  <img
+                    src={tenantShout.img}
+                    alt={tenantShout.title}
+                    style={{
                       width: "100%",
-                      margin: "0",
-                      height: isMobile ? 200 : 100,
-                      alignItems: "center",
+                      borderRadius: "14px",
+                      display: "block",
                     }}
-                  >
-                    {/* Left side: the image */}
+                  />
+                </Box>
 
-                      <GreenOverlayImage
-                        src={feature.image}
-                        alt={feature.text}
-                        height={"130px"}
-                        width={"100%"}
-                      />
+                {!isMobile &&
+                  features.slice(0, 3).map((feature, index) => {
+                    const positions = [
+                      { left: 0, top: 80 },
+                      { right: 0, top: 180 },
+                      { right: 60, bottom: 30 },
+                    ];
 
-
-                    {/* Right side: text content */}
-                    <Box
-                      sx={{ display: "flex", flexDirection: "column", flex: 1 }}
-                    >
-                      <CardContent>
-                        <p
-                          style={{ margin: 0, textAlign: isMobile && "center" }}
+                    return (
+                      <Box
+                        key={feature.text}
+                        sx={{
+                          position: "absolute",
+                          ...positions[index],
+                          width: "230px",
+                          background: "white",
+                          borderRadius: "14px",
+                          p: 2,
+                          boxShadow: "0 18px 50px rgba(0,0,0,0.14)",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            color: "#07833d",
+                            fontFamily: "Bebas Neue",
+                            fontSize: "1rem",
+                          }}
                         >
-                          {" "}
+                          {index === 0
+                            ? "PROBLEM REPORTED"
+                            : index === 1
+                              ? "ACTION READY"
+                              : "JOINED NEARBY"}
+                        </Typography>
+                        <Typography sx={{ fontSize: "0.9rem" }}>
                           {feature.text}
-                        </p>
-                      </CardContent>
-                    </Box>
-                  </Card>
-                </Grid>
-              ))}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
+              </Box>
             </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </Box>
     </section>
   );
